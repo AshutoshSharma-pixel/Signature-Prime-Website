@@ -57,12 +57,12 @@ export default function AboutPreview() {
                         className="w-full md:w-1/2 relative h-[500px]"
                     >
                         <div className="absolute inset-0 bg-prime-dark/10 z-10" />
-                        {/* Placeholder for About Image */}
-                        <div className="w-full h-full bg-gray-300 relative overflow-hidden rounded-sm shadow-2xl">
-                            <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                                Image: Luxury Interior Shot
-                            </div>
-                        </div>
+                        <Image
+                            src="/real-waiting-image.webp"
+                            alt="Luxury Interior Waiting Area"
+                            fill
+                            className="object-cover rounded-sm shadow-2xl hover:scale-105 transition-transform duration-700"
+                        />
                     </motion.div>
                 </div>
             </div>

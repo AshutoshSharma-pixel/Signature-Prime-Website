@@ -9,6 +9,7 @@ import {
     signOut as firebaseSignOut,
     onAuthStateChanged,
     updateProfile,
+    sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth, googleProvider } from "@/lib/firebase";
 
@@ -18,6 +19,7 @@ interface AuthContextType {
     signInWithGoogle: () => Promise<void>;
     signInWithEmail: (email: string, password: string) => Promise<void>;
     signUpWithEmail: (name: string, email: string, password: string) => Promise<void>;
+    resetPassword: (email: string) => Promise<void>;
     signOut: () => Promise<void>;
 }
 
@@ -80,8 +82,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         }
     };
 
+    const resetPassword = async (email: string) => {
+        try {
+            await sendPasswordResetEmail(auth, email);
+        } catch (error) {
+            console.error("Password reset error:", error);
+            throw error;
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, loading, signInWithGoogle, signInWithEmail, signUpWithEmail, signOut }}>
+        <AuthContext.Provider value={{ user, loading, signInWithGoogle, signInWithEmail, signUpWithEmail, resetPassword, signOut }}>
             {children}
         </AuthContext.Provider>
     );

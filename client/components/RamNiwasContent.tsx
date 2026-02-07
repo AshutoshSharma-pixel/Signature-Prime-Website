@@ -120,9 +120,9 @@ export default function RamNiwasContent() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { src: "/ram-niwas-residency.png", label: "Premium Room", alt: "Bedroom Interior" },
-                            { src: "/hero-3d-bg-v2.png", label: "Study Area", alt: "Study Table" },
-                            { src: "/balaji-hostel.webp", label: "Lounge Access", alt: "Common Area" },
+                            { src: "/room-images.webp", label: "Premium Room", alt: "Bedroom Interior" },
+                            { src: "/corridors-image.webp", label: "Interior", alt: "Interior" },
+                            { src: "/table-tennis-image.webp", label: "Playing Area", alt: "Table Tennis Area" },
                         ].map((img, index) => (
                             <motion.div
                                 key={index}

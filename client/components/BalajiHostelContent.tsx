@@ -120,9 +120,9 @@ export default function BalajiHostelContent() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { src: "/balaji-hostel.webp", label: "Garden View Room", alt: "Room with View" },
-                            { src: "/hero-3d-bg-v2.png", label: "Common Lounge", alt: "Lounge Area" },
-                            { src: "/ram-niwas-residency.png", label: "Exterior", alt: "Building Exterior" },
+                            { src: "/room-pic.jpeg", label: "Rooms", alt: "Room with View" },
+                            { src: "/waiting-area-pic.webp", label: "Waiting Area", alt: "Waiting Area" },
+                            { src: "/garden-pic.webp", label: "Garden Area", alt: "Garden Area" },
                         ].map((img, index) => (
                             <motion.div
                                 key={index}

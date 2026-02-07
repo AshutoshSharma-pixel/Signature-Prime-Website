@@ -3,6 +3,7 @@ import { Playfair_Display, Lato } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`}>
       <body className="font-sans bg-prime-light text-prime-gray antialiased" suppressHydrationWarning={true}>
+        <SmoothScroll />
         <Providers>
           <Header />
           {children}

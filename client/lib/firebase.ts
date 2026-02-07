@@ -17,9 +17,18 @@ let auth: Auth;
 let googleProvider: GoogleAuthProvider;
 
 if (typeof window !== 'undefined') {
-    app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-    auth = getAuth(app);
-    googleProvider = new GoogleAuthProvider();
+    // Check if config variables are actually present
+    if (firebaseConfig.apiKey) {
+        try {
+            app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+            auth = getAuth(app);
+            googleProvider = new GoogleAuthProvider();
+        } catch (error) {
+            console.error("Firebase initialization error:", error);
+        }
+    } else {
+        console.warn("Firebase config is missing or incomplete. Authentication will not work. Check your .env.local file.");
+    }
 }
 
 export { auth, googleProvider };

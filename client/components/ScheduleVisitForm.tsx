@@ -24,13 +24,18 @@ export default function ScheduleVisitForm() {
         setLoading(true);
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-            const response = await fetch(`${apiUrl}/api/forms/visit`, {
+            // Using FormSubmit.co for simple email notifications without backend config
+            const response = await fetch("https://formsubmit.co/ajax/hssignatureprime@gmail.com", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Accept": "application/json"
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    ...formData,
+                    _subject: `New Visit Request from ${formData.name}`,
+                    _template: "table" // Optional: makes the email look nicer
+                }),
             });
 
             if (response.ok) {
@@ -79,6 +84,7 @@ export default function ScheduleVisitForm() {
                             <input
                                 type="text"
                                 name="name"
+                                value={formData.name}
                                 required
                                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-sm focus:outline-none focus:border-prime-gold focus:ring-2 focus:ring-prime-gold/20 transition-all !bg-white !text-black"
                                 onChange={handleChange}
@@ -89,6 +95,7 @@ export default function ScheduleVisitForm() {
                             <input
                                 type="email"
                                 name="email"
+                                value={formData.email}
                                 required
                                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-sm focus:outline-none focus:border-prime-gold focus:ring-2 focus:ring-prime-gold/20 transition-all !bg-white !text-black"
                                 onChange={handleChange}
@@ -99,6 +106,7 @@ export default function ScheduleVisitForm() {
                             <input
                                 type="tel"
                                 name="phone"
+                                value={formData.phone}
                                 required
                                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-sm focus:outline-none focus:border-prime-gold focus:ring-2 focus:ring-prime-gold/20 transition-all !bg-white !text-black"
                                 onChange={handleChange}
@@ -109,6 +117,7 @@ export default function ScheduleVisitForm() {
                             <input
                                 type="date"
                                 name="date"
+                                value={formData.date}
                                 required
                                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-sm focus:outline-none focus:border-prime-gold focus:ring-2 focus:ring-prime-gold/20 transition-all !bg-white !text-black"
                                 onChange={handleChange}
@@ -118,6 +127,7 @@ export default function ScheduleVisitForm() {
                             <label className="block text-black mb-2 font-semibold text-sm tracking-wide">Message (Optional)</label>
                             <textarea
                                 name="message"
+                                value={formData.message}
                                 rows={4}
                                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-sm focus:outline-none focus:border-prime-gold focus:ring-2 focus:ring-prime-gold/20 transition-all resize-none !bg-white !text-black"
                                 onChange={handleChange}
