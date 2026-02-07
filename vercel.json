@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "name": "client",
+      "source": "client",
+      "framework": "nextjs"
+    },
+    {
+      "name": "server",
+      "source": "server",
+      "builds": [
+        {
+          "src": "src/index.ts",
+          "use": "@vercel/node"
+        }
+      ]
+    }
+  ]
+}
