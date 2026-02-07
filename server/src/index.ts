@@ -18,25 +18,24 @@ import authRoutes from "./routes/auth";
 import formRoutes from "./routes/forms";
 
 // Database Connection
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/signature-prime";
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/signature-prime";
 
 mongoose
-    .connect(MONGODB_URI)
-    .then(() => console.log("MongoDB Connected"))
-    .catch((err) => console.log(err));
+  .connect(MONGODB_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
 
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/forms", formRoutes);
 
 app.get("/", (req, res) => {
-    res.send("Signature Prime API Running");
+  res.send("Signature Prime API Running");
 });
 
-if (process.env.NODE_ENV !== "production") {
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-    });
-}
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 export default app;
