@@ -72,7 +72,14 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <h3 className="font-serif text-xl mb-2">Call Us</h3>
-<p className="text-gray-600">+91 97722 56724</p>
+                                <div className="flex flex-col gap-1 text-gray-600">
+                                    <a href="tel:+919772256724" className="hover:text-prime-gold transition-colors">
+                                        +91 97722 56724
+                                    </a>
+                                    <a href="tel:+919587000206" className="hover:text-prime-gold transition-colors">
+                                        +91 95870 00206
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
