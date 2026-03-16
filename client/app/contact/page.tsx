@@ -72,7 +72,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <h3 className="font-serif text-xl mb-2">Call Us</h3>
-                                <p className="text-gray-600">+91 98765 43210</p>
+<p className="text-gray-600">+91 97722 56724</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">

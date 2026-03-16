@@ -40,7 +40,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="flex justify-center"
                 >
-                    <a href="tel:+919587000206">
+<a href="tel:+919772256724">
                         <Button
                             variant="outline"
                             className="text-lg px-8 py-4 text-white border-white hover:bg-prime-gold hover:border-prime-gold hover:text-white"
